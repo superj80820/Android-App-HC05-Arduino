@@ -7,135 +7,250 @@
     tools:context="com.example.danyal.bluetoothhc05.ledControl">
 
     <LinearLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
+        android:gravity="bottom"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <WebView
+            android:id="@+id/monitor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+        </WebView>
+
+        <TableLayout
+            android:id="@+id/contorller"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:gravity="bottom">
 
-            <TextView
-                android:id="@+id/textView2"
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="progress"
-                android:textAlignment="center"
-                tools:layout_editor_absoluteX="8dp"
-                tools:layout_editor_absoluteY="30dp" />
-        </LinearLayout>
+                android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+                <Button
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/holo_blue_light"
+                    android:text="功能1"
+                    tools:layout_editor_absoluteX="192dp"
+                    tools:layout_editor_absoluteY="64dp" />
 
-            <Button
-                android:id="@+id/button2"
-                android:layout_margin="5dp"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@android:color/holo_blue_light"
-                android:text="Combo 1"
-                tools:layout_editor_absoluteX="148dp"
-                tools:layout_editor_absoluteY="88dp" />
-        </LinearLayout>
+                <Button
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/holo_blue_light"
+                    android:text="功能2"
+                    tools:layout_editor_absoluteX="61dp"
+                    tools:layout_editor_absoluteY="134dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+                <Button
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/holo_blue_light"
+                    android:text="功能3"
+                    tools:layout_editor_absoluteX="91dp"
+                    tools:layout_editor_absoluteY="168dp" />
 
-            <Button
-                android:id="@+id/button3"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:background="@android:color/holo_blue_light"
-                android:text="Combo 2"
-                tools:layout_editor_absoluteX="192dp"
-                tools:layout_editor_absoluteY="64dp" />
-        </LinearLayout>
+                <Button
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/holo_blue_light"
+                    android:text="功能4"
+                    tools:layout_editor_absoluteX="112dp"
+                    tools:layout_editor_absoluteY="336dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+                <Button
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/holo_blue_light"
+                    android:text="功能5"
+                    tools:layout_editor_absoluteX="112dp"
+                    tools:layout_editor_absoluteY="336dp" />
 
-            <Button
-                android:id="@+id/button5"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:background="@android:color/holo_blue_light"
-                android:text="Combo 3"
-                tools:layout_editor_absoluteX="61dp"
-                tools:layout_editor_absoluteY="134dp" />
-        </LinearLayout>
+                <Button
+                    android:id="@+id/dissconnect"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/holo_blue_light"
+                    android:text="斷線"
+                    tools:layout_editor_absoluteX="112dp"
+                    tools:layout_editor_absoluteY="336dp" />
+            </TableRow>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/button6"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:background="@android:color/holo_blue_light"
-                android:text="Combo 4"
-                tools:layout_editor_absoluteX="91dp"
-                tools:layout_editor_absoluteY="168dp" />
-        </LinearLayout>
+                <Button
+                    android:id="@+id/button18"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="#00000000"
+                    tools:layout_editor_absoluteX="148dp"
+                    tools:layout_editor_absoluteY="88dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+                <Button
+                    android:id="@+id/forward"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/holo_blue_light"
+                    android:text="前進"
+                    tools:layout_editor_absoluteX="148dp"
+                    tools:layout_editor_absoluteY="88dp" />
 
-            <Button
-                android:id="@+id/button7"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:background="@android:color/holo_blue_light"
-                android:text="Combo 5"
-                tools:layout_editor_absoluteX="112dp"
-                tools:layout_editor_absoluteY="336dp" />
-        </LinearLayout>
+                <Button
+                    android:id="@+id/button15"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="#00000000"
+                    tools:layout_editor_absoluteX="112dp"
+                    tools:layout_editor_absoluteY="336dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+                <Button
+                    android:id="@+id/button19"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="#00000000"
+                    tools:layout_editor_absoluteX="112dp"
+                    tools:layout_editor_absoluteY="336dp" />
 
-            <Button
-                android:id="@+id/button4"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:background="@android:color/holo_red_light"
-                android:text="Disconnect Pairing"
-                tools:layout_editor_absoluteX="108dp"
-                tools:layout_editor_absoluteY="154dp" />
-        </LinearLayout>
+                <Button
+                    android:id="@+id/rise"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/holo_blue_light"
+                    android:text="上升"
+                    tools:layout_editor_absoluteX="112dp"
+                    tools:layout_editor_absoluteY="336dp" />
+
+                <Button
+                    android:id="@+id/button2"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="#00000000"
+                    tools:layout_editor_absoluteX="148dp"
+                    tools:layout_editor_absoluteY="88dp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/left"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/holo_blue_light"
+                    android:text="左轉"
+                    tools:layout_editor_absoluteX="192dp"
+                    tools:layout_editor_absoluteY="64dp" />
+
+                <Button
+                    android:id="@+id/back"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/holo_blue_light"
+                    android:text="後退"
+                    tools:layout_editor_absoluteX="61dp"
+                    tools:layout_editor_absoluteY="134dp" />
+
+                <Button
+                    android:id="@+id/right"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/holo_blue_light"
+                    android:text="右轉"
+                    tools:layout_editor_absoluteX="91dp"
+                    tools:layout_editor_absoluteY="168dp" />
+
+                <Button
+                    android:id="@+id/leftHanded"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/holo_blue_light"
+                    android:text="左旋"
+                    tools:layout_editor_absoluteX="112dp"
+                    tools:layout_editor_absoluteY="336dp" />
+
+                <Button
+                    android:id="@+id/drop"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/holo_blue_light"
+                    android:text="下降"
+                    tools:layout_editor_absoluteX="112dp"
+                    tools:layout_editor_absoluteY="336dp" />
+
+                <Button
+                    android:id="@+id/rightHanded"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/holo_blue_light"
+                    android:text="右旋"
+                    tools:layout_editor_absoluteX="112dp"
+                    tools:layout_editor_absoluteY="336dp" />
+            </TableRow>
+
+        </TableLayout>
 
     </LinearLayout>
 

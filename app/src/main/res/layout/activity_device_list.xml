@@ -18,17 +18,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Select A Pairing Device"
-                android:textColor="#0033FF"
-                android:textSize="16dp"
-                tools:layout_editor_absoluteX="168dp"
-                tools:layout_editor_absoluteY="134dp" />
-
             <Button
                 android:id="@+id/button"
                 style="@style/Widget.AppCompat.Button.Colored"
@@ -36,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@android:color/holo_blue_light"
-                android:text="Pair"
+                android:text="請點選掃描附近藍芽裝置"
                 tools:layout_editor_absoluteX="190dp"
                 tools:layout_editor_absoluteY="183dp" />
         </LinearLayout>
@@ -50,7 +39,6 @@
                 android:id="@+id/listView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="150dp"
                 android:footerDividersEnabled="false"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="8dp" />

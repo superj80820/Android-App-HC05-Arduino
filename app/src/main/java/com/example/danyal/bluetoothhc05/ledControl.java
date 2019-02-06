@@ -9,21 +9,19 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
-import android.widget.SeekBar;
-import android.widget.TextView;
 import android.widget.Toast;
-
 import org.w3c.dom.Text;
-
 import java.io.IOException;
 import java.util.UUID;
 
 public class ledControl extends AppCompatActivity {
 
-    Button btn1, btn2, btn3, btn4, btn5, btnDis;
+    WebView web_view;
+    Button btn_forward, btn_back, btn_left, btn_right, btn_rise, btn_drop, btn_left_hand, btn_right_hand, btn_dis;
     String address = null;
-    TextView lumn;
     private ProgressDialog progress;
     BluetoothAdapter myBluetooth = null;
     BluetoothSocket btSocket = null;
@@ -34,62 +32,104 @@ public class ledControl extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        new ConnectBT().execute();
+
         Intent newint = getIntent();
         address = newint.getStringExtra(DeviceList.EXTRA_ADDRESS);
 
         setContentView(R.layout.activity_led_control);
+        web_view = (WebView) findViewById(R.id.monitor);
+        btn_forward = (Button) findViewById(R.id.forward);
+        btn_back = (Button) findViewById(R.id.back);
+        btn_left = (Button) findViewById(R.id.left);
+        btn_right = (Button) findViewById(R.id.right);
+        btn_rise = (Button) findViewById(R.id.rise);
+        btn_drop = (Button) findViewById(R.id.drop);
+        btn_left_hand = (Button) findViewById(R.id.leftHanded);
+        btn_right_hand = (Button) findViewById(R.id.rightHanded);
+        btn_dis = (Button) findViewById(R.id.dissconnect);
 
-        btn1 = (Button) findViewById(R.id.button2);
-        btn2 = (Button) findViewById(R.id.button3);
-        btn3 = (Button) findViewById(R.id.button5);
-        btn4 = (Button) findViewById(R.id.button6);
-        btn5 = (Button) findViewById(R.id.button7);
-        btnDis = (Button) findViewById(R.id.button4);
-        lumn = (TextView) findViewById(R.id.textView2);
+        web_view.setWebViewClient(new myWebViewClient());
+        web_view.getSettings().setJavaScriptEnabled(true);
+        web_view.loadUrl("http://140.128.86.102:81/index.html");
 
-        new ConnectBT().execute();
-
-        btn1.setOnClickListener(new View.OnClickListener() {
+        btn_forward.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
-                sendSignal("1");
+                sendSignal("F");
             }
         });
 
-        btn2.setOnClickListener(new View.OnClickListener() {
+        btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
-                sendSignal("2");
+                sendSignal("B");
             }
         });
 
-        btn3.setOnClickListener(new View.OnClickListener() {
+        btn_left.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
-                sendSignal("3");
+                sendSignal("L");
             }
         });
 
-        btn4.setOnClickListener(new View.OnClickListener() {
+        btn_right.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
-                sendSignal("4");
+                sendSignal("R");
             }
         });
 
-        btn5.setOnClickListener(new View.OnClickListener() {
+        btn_rise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
-                sendSignal("5");
+                sendSignal("i");
             }
         });
 
-        btnDis.setOnClickListener(new View.OnClickListener() {
+        btn_drop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+                sendSignal("j");
+            }
+        });
+
+        btn_left_hand.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+                sendSignal("k");
+            }
+        });
+
+        btn_right_hand.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+                sendSignal("d");
+            }
+        });
+
+        btn_dis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
                 Disconnect();
             }
         });
+
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        Disconnect();
+    }
+
+    public class myWebViewClient extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            view.loadUrl(url);
+            return true;
+        }
     }
 
     private void sendSignal ( String number ) {
@@ -105,9 +145,10 @@ public class ledControl extends AppCompatActivity {
     private void Disconnect () {
         if ( btSocket!=null ) {
             try {
+                msg("斷開連接");
                 btSocket.close();
             } catch(IOException e) {
-                msg("Error");
+                msg("斷開錯誤");
             }
         }
 
@@ -122,8 +163,8 @@ public class ledControl extends AppCompatActivity {
         private boolean ConnectSuccess = true;
 
         @Override
-        protected  void onPreExecute () {
-            progress = ProgressDialog.show(ledControl.this, "Connecting...", "Please Wait!!!");
+        protected void onPreExecute () {
+            progress = ProgressDialog.show(ledControl.this, "連接中...", "請燒等");
         }
 
         @Override
@@ -148,10 +189,10 @@ public class ledControl extends AppCompatActivity {
             super.onPostExecute(result);
 
             if (!ConnectSuccess) {
-                msg("Connection Failed. Is it a SPP Bluetooth? Try again.");
+                msg("連接失敗 請重新連接");
                 finish();
             } else {
-                msg("Connected");
+                msg("連接成功");
                 isBtConnected = true;
             }
 
