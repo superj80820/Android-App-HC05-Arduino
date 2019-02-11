@@ -66,6 +66,8 @@ public class ledControl extends AppCompatActivity {
         web_view.getSettings().setJavaScriptEnabled(true);
         web_view.getSettings().setUseWideViewPort(true);
         web_view.getSettings().setLoadWithOverviewMode(true);
+        web_view.getSettings().setSupportZoom(true);
+        web_view.getSettings().setBuiltInZoomControls(true);
         web_view.loadUrl("http://140.128.86.102:81/index.htm");
 
         btn_forward.setOnClickListener(new View.OnClickListener() {
