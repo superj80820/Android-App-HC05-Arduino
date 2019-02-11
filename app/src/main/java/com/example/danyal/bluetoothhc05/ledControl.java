@@ -20,7 +20,13 @@ import java.util.UUID;
 public class ledControl extends AppCompatActivity {
 
     WebView web_view;
-    Button btn_forward, btn_back, btn_left, btn_right, btn_rise, btn_drop, btn_left_hand, btn_right_hand, btn_dis;
+    Button btn_forward, btn_back, btn_left, btn_right,
+            btn_rise, btn_drop, btn_left_hand, btn_right_hand,
+            btn_rise_1, btn_drop_1,
+            btn_rise_2, btn_drop_2,
+            btn_open, btn_close,
+            btn_stand_by,
+            btn_dis;
     String address = null;
     private ProgressDialog progress;
     BluetoothAdapter myBluetooth = null;
@@ -47,11 +53,18 @@ public class ledControl extends AppCompatActivity {
         btn_drop = (Button) findViewById(R.id.drop);
         btn_left_hand = (Button) findViewById(R.id.leftHanded);
         btn_right_hand = (Button) findViewById(R.id.rightHanded);
+        btn_rise_1 = (Button) findViewById(R.id.rise1);
+        btn_drop_1 = (Button) findViewById(R.id.drop1);
+        btn_rise_2 = (Button) findViewById(R.id.rise2);
+        btn_drop_2 = (Button) findViewById(R.id.drop2);
+        btn_open = (Button) findViewById(R.id.open);
+        btn_close = (Button) findViewById(R.id.close);
+        btn_stand_by = (Button) findViewById(R.id.standBy);
         btn_dis = (Button) findViewById(R.id.dissconnect);
 
         web_view.setWebViewClient(new myWebViewClient());
         web_view.getSettings().setJavaScriptEnabled(true);
-        web_view.loadUrl("http://140.128.86.102:81/index.html");
+        web_view.loadUrl("http://140.128.86.102:81/index.htm");
 
         btn_forward.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,21 +97,21 @@ public class ledControl extends AppCompatActivity {
         btn_rise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
-                sendSignal("i");
+                sendSignal("a");
             }
         });
 
         btn_drop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
-                sendSignal("j");
+                sendSignal("b");
             }
         });
 
         btn_left_hand.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
-                sendSignal("k");
+                sendSignal("c");
             }
         });
 
@@ -109,13 +122,61 @@ public class ledControl extends AppCompatActivity {
             }
         });
 
+        btn_rise_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+                sendSignal("e");
+            }
+        });
+
+        btn_drop_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+                sendSignal("g");
+            }
+        });
+
+        btn_rise_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+                sendSignal("f");
+            }
+        });
+
+        btn_drop_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+                sendSignal("h");
+            }
+        });
+
+        btn_open.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+                sendSignal("i");
+            }
+        });
+
+        btn_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+                sendSignal("j");
+            }
+        });
+
+        btn_stand_by.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+                sendSignal("k");
+            }
+        });
+
         btn_dis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
                 Disconnect();
             }
         });
-
 
     }
 

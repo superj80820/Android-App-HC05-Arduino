@@ -32,57 +32,86 @@
                 android:layout_height="match_parent">
 
                 <Button
+                    android:id="@+id/rise1"
                     style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:background="@android:color/holo_blue_light"
-                    android:text="功能1"
+                    android:text="升(1)"
                     tools:layout_editor_absoluteX="192dp"
                     tools:layout_editor_absoluteY="64dp" />
 
                 <Button
+                    android:id="@+id/drop1"
                     style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:background="@android:color/holo_blue_light"
-                    android:text="功能2"
+                    android:text="降1"
                     tools:layout_editor_absoluteX="61dp"
                     tools:layout_editor_absoluteY="134dp" />
 
                 <Button
+                    android:id="@+id/rise2"
                     style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:background="@android:color/holo_blue_light"
-                    android:text="功能3"
+                    android:text="升(2)"
                     tools:layout_editor_absoluteX="91dp"
                     tools:layout_editor_absoluteY="168dp" />
 
                 <Button
+                    android:id="@+id/drop2"
                     style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:background="@android:color/holo_blue_light"
-                    android:text="功能4"
+                    android:text="降2"
                     tools:layout_editor_absoluteX="112dp"
                     tools:layout_editor_absoluteY="336dp" />
 
                 <Button
+                    android:id="@+id/open"
                     style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:background="@android:color/holo_blue_light"
-                    android:text="功能5"
+                    android:text="開"
+                    tools:layout_editor_absoluteX="112dp"
+                    tools:layout_editor_absoluteY="336dp" />
+
+                <Button
+                    android:id="@+id/close"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/holo_blue_light"
+                    android:text="閉"
+                    tools:layout_editor_absoluteX="112dp"
+                    tools:layout_editor_absoluteY="336dp" />
+
+                <Button
+                    android:id="@+id/standBy"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/holo_blue_light"
+                    android:text="待機"
                     tools:layout_editor_absoluteX="112dp"
                     tools:layout_editor_absoluteY="336dp" />
 
