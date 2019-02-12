@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -19,6 +21,8 @@ import java.util.UUID;
 
 public class ledControl extends AppCompatActivity {
 
+    boolean isBtnLongPressed = false;
+    String sendData = null;
     WebView web_view;
     Button btn_forward, btn_back, btn_left, btn_right,
             btn_rise, btn_drop, btn_left_hand, btn_right_hand,
@@ -66,110 +70,204 @@ public class ledControl extends AppCompatActivity {
         web_view.getSettings().setJavaScriptEnabled(true);
         web_view.getSettings().setUseWideViewPort(true);
         web_view.getSettings().setLoadWithOverviewMode(true);
+        web_view.getSettings().setSupportZoom(true);
+        web_view.getSettings().setBuiltInZoomControls(true);
         web_view.loadUrl("http://140.128.86.102:81/index.htm");
 
-        btn_forward.setOnClickListener(new View.OnClickListener() {
+        new Thread (new Runnable() {
             @Override
-            public void onClick (View v) {
-                sendSignal("F");
+            public void run() {
+                while (true) {
+                    try {
+                        Log.e("hihi",Boolean.toString(isBtnLongPressed));
+                        if (isBtnLongPressed) {
+                            sendSignal();
+                        }
+                        Thread.sleep(200);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
+
+        btn_forward.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    setSendData("F", true);
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    setSendData(null, false);
+                }
+                return  false;
             }
         });
 
-        btn_back.setOnClickListener(new View.OnClickListener() {
+        btn_back.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick (View v) {
-                sendSignal("B");
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    setSendData("B", true);
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    setSendData(null, false);
+                }
+                return false;
             }
         });
 
-        btn_left.setOnClickListener(new View.OnClickListener() {
+        btn_left.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick (View v) {
-                sendSignal("L");
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    setSendData("L", true);
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    setSendData(null, false);
+                }
+                return false;
             }
         });
 
-        btn_right.setOnClickListener(new View.OnClickListener() {
+        btn_right.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick (View v) {
-                sendSignal("R");
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    setSendData("R", true);
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    setSendData(null, false);
+                }
+                return false;
+            }
+        });;
+
+        btn_rise.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    setSendData("a", true);
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    setSendData(null, false);
+                }
+                return false;
+            }
+        });;
+
+        btn_drop.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    setSendData("b", true);
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    setSendData(null, false);
+                }
+                return false;
+            }
+        });;
+
+        btn_left_hand.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    setSendData("c", true);
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    setSendData(null, false);
+                }
+                return false;
+            }
+        });;
+
+        btn_right_hand.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    setSendData("d", true);
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    setSendData(null, false);
+                }
+                return false;
+            }
+        });;
+
+        btn_rise_1.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    setSendData("g", true);
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    setSendData(null, false);
+                }
+                return false;
+            }
+        });;
+
+        btn_drop_1.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    setSendData("e", true);
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    setSendData(null, false);
+                }
+                return false;
+            }
+        });;
+
+        btn_rise_2.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    setSendData("h", true);
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    setSendData(null, false);
+                }
+                return false;
             }
         });
 
-        btn_rise.setOnClickListener(new View.OnClickListener() {
+        btn_drop_2.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick (View v) {
-                sendSignal("a");
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    setSendData("f", true);
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    setSendData(null, false);
+                }
+                return false;
             }
         });
 
-        btn_drop.setOnClickListener(new View.OnClickListener() {
+        btn_open.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick (View v) {
-                sendSignal("b");
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    setSendData("i", true);
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    setSendData(null, false);
+                }
+                return false;
             }
         });
 
-        btn_left_hand.setOnClickListener(new View.OnClickListener() {
+        btn_close.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick (View v) {
-                sendSignal("c");
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    setSendData("j", true);
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    setSendData(null, false);
+                }
+                return false;
             }
         });
 
-        btn_right_hand.setOnClickListener(new View.OnClickListener() {
+        btn_stand_by.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick (View v) {
-                sendSignal("d");
-            }
-        });
-
-        btn_rise_1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View v) {
-                sendSignal("e");
-            }
-        });
-
-        btn_drop_1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View v) {
-                sendSignal("g");
-            }
-        });
-
-        btn_rise_2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View v) {
-                sendSignal("f");
-            }
-        });
-
-        btn_drop_2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View v) {
-                sendSignal("h");
-            }
-        });
-
-        btn_open.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View v) {
-                sendSignal("i");
-            }
-        });
-
-        btn_close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View v) {
-                sendSignal("j");
-            }
-        });
-
-        btn_stand_by.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View v) {
-                sendSignal("k");
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    setSendData("k", true);
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    setSendData(null, false);
+                }
+                return false;
             }
         });
 
@@ -180,6 +278,20 @@ public class ledControl extends AppCompatActivity {
             }
         });
 
+    }
+
+    private class touchListener implements View.OnTouchListener {
+        @Override
+        public boolean onTouch(View pView, MotionEvent pEvent) {
+            sendData = null;
+            isBtnLongPressed = true;
+            return false;
+        }
+    }
+
+    public void setSendData(String signal, boolean isBtConnected){
+        isBtnLongPressed = isBtConnected;
+        sendData = signal;
     }
 
     @Override
@@ -195,10 +307,12 @@ public class ledControl extends AppCompatActivity {
         }
     }
 
-    private void sendSignal ( String number ) {
+    private void sendSignal () {
         if ( btSocket != null ) {
             try {
-                btSocket.getOutputStream().write(number.toString().getBytes());
+                if (sendData != null){
+                    btSocket.getOutputStream().write(sendData.toString().getBytes());
+                }
             } catch (IOException e) {
                 msg("Error");
             }

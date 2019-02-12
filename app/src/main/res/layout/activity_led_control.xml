@@ -185,7 +185,7 @@
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:background="@android:color/holo_blue_light"
-                    android:text="上升"
+                    android:text="左臂前"
                     tools:layout_editor_absoluteX="112dp"
                     tools:layout_editor_absoluteY="336dp" />
 
@@ -250,7 +250,7 @@
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:background="@android:color/holo_blue_light"
-                    android:text="左旋"
+                    android:text="手臂後"
                     tools:layout_editor_absoluteX="112dp"
                     tools:layout_editor_absoluteY="336dp" />
 
@@ -262,7 +262,7 @@
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:background="@android:color/holo_blue_light"
-                    android:text="下降"
+                    android:text="左旋"
                     tools:layout_editor_absoluteX="112dp"
                     tools:layout_editor_absoluteY="336dp" />
 
